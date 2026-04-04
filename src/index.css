@@ -7,6 +7,10 @@
     src: url("./assets/fonts/Monocode.ttf");
 }
 
+html {
+    background: #060606;
+}
+
 :root {
     --surface-3: hsl(0, 0%, 100%);
     --border-1: hsl(0, 0%, 100%);

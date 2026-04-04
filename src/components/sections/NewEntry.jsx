@@ -10,13 +10,17 @@ import spotifySVG from "../../assets/images/spotify.svg";
 // fast-average-color
 import { useEffect, useState, useRef } from "react";
 import { FastAverageColor } from "fast-average-color";
-import thumbnailImage from "../../assets/images/maxresdefault.jpg";
+import thumbnailImage from "../../assets/images/maxresdefault3.jpg";
+import thumbnailImage2 from "../../assets/images/maxresdefault2.jpg";
+import thumbnailImage3 from "../../assets/images/maxresdefault4.jpg";
 
 // Inside your component, use it like this:
 const QRCodeComponent = QRCode.default ? QRCode.default : QRCode;
 
 function NewEntry() {
     const imageSrc = thumbnailImage;
+    const imageSrcBg1 = thumbnailImage2;
+    const imageSrcBg2 = thumbnailImage3;
 
     const [averageThumbnailColors, setAverageThumbnailColors] = useState(null);
 
@@ -151,25 +155,15 @@ function NewEntry() {
         };
     }, [imageSrc]); // Runs again if the image source changes
 
-    // useEffect(() => {
-    // if (averageThumbnailColors !== null) {
-    // setIsLoading(false);
-    // }
-    // }, [averageThumbnailColors]);
-
     if (isLoading == false && averageThumbnailColors !== null) {
         return (
             <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-                {/* Background Video */}
                 <div className="absolute top-0 left-0 w-full h-full object-cover -z-10">
-                    <Grainient
-                        // color1="#328283" // light
-                        // color2="#032028" // mid
-                        // color3="#001118" // dark
-                        color1={averageThumbnailColors.lightColor} // light -- i need these values here!!!
+                    {/* <Grainient
+                        color1={averageThumbnailColors.lightColor} // light
                         color2={averageThumbnailColors.mediumColor} // mid
                         color3={averageThumbnailColors.darkColor} // dark
-                        timeSpeed={0.5}
+                        timeSpeed={0} // was 0.5
                         colorBalance={0}
                         warpStrength={1}
                         warpFrequency={12}
@@ -188,133 +182,351 @@ function NewEntry() {
                         centerX={0}
                         centerY={0}
                         zoom={0.8}
-                    />
+                    /> */}
                 </div>
 
                 {/* Foreground */}
 
-                <div className="z-10 flex gap-5 text-white font-[Oxanium]">
-                    <div className="card p-5 overflow-hidden relative rounded-md">
-                        <div className="grain-overlay"></div>
+                <div className="flex flex-col gap-2 h-full justify-center">
+                    <div className="flex flex-col gap-10">
+                        <h1 className="font-[Monocode] text-5xl text-white font-bold text-start">
+                            // LATEST
+                        </h1>
+                        <div className="relative flex gap-0 items-center">
+                            {/* BG Card #1 */}
+                            <div
+                                className="-z-90 blur-sm absolute -left-20 h-[90%] gap-5 text-white font-[Oxanium] brightness-65 saturate-50"
+                                style={{
+                                    boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                    backgroundColor: `${averageThumbnailColors.mediumColor}50`,
+                                }}
+                            >
+                                <div className="bg-white/10 p-5 overflow-hidden relative">
+                                    <div className="grain-overlay"></div>
 
-                        <span className="relative z-20 flex flex-col gap-5">
-                            <div className="overflow-hidden rounded-sm">
-                                <img
-                                    onLoad={(e) =>
-                                        getThumbnailColor(e.currentTarget)
-                                    }
-                                    className="scale-101 h-150"
-                                    src={imageSrc}
-                                ></img>
+                                    <span className="relative z-20 flex flex-col gap-5">
+                                        <div className="overflow-hidden">
+                                            <img
+                                                onLoad={(e) =>
+                                                    getThumbnailColor(
+                                                        e.currentTarget,
+                                                    )
+                                                }
+                                                className="scale-101 h-130"
+                                                src={imageSrcBg1}
+                                            ></img>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col gap-2">
+                                                <h2 className="text-xl">
+                                                    092 // Azure Strip - 1 Hour
+                                                    Immersive Soundfield
+                                                </h2>
+
+                                                <p className="text-sm text-white/75">
+                                                    The Azure Strip exists not
+                                                    to move people from one
+                                                    place to another, but to
+                                                    carry them through moments
+                                                    they would otherwise refuse
+                                                    to leave behind...
+                                                </p>
+                                            </div>
+
+                                            <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:text-white/65 flex gap-2">
+                                                <table className="border-separate border-spacing-x-2">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>DETECTED:</th>
+
+                                                            <td>04-01-2026</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>
+                                                                TRANSMISSION:
+                                                            </th>
+
+                                                            <td>c_EdC85jKq4</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>DURATION:</th>
+
+                                                            <td>04-01-2026</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <div className="border-2 border-white">
+                                                    <QRCodeComponent
+                                                        value={
+                                                            "https://www.youtube.com/watch?v=c_EdC85jKq4"
+                                                        }
+                                                        size={64}
+                                                        bgColor="#FFFFFF"
+                                                        fgColor="#FFFFFF00"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
                             </div>
 
-                            <div className="flex justify-between">
-                                <div className="flex flex-col gap-2">
-                                    <h2 className="text-xl">
-                                        106 // Blue Meridian - 1 Hour Calming
-                                        Underwater Soundfield
-                                    </h2>
+                            {/* Main Card */}
+                            <div
+                                className="z-10 flex gap-5 text-white font-[Oxanium]"
+                                style={{
+                                    boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                    backgroundColor: `${averageThumbnailColors.mediumColor}50`,
+                                }}
+                            >
+                                <div className="card p-5 overflow-hidden relative">
+                                    <div className="grain-overlay"></div>
 
-                                    <p className="text-sm text-white/75">
-                                        Blue Meridian is an immense circular
-                                        corridor spanning several kilometers in
-                                        diameter, forming...
-                                    </p>
-                                </div>
+                                    <span className="relative z-20 flex flex-col gap-5">
+                                        <div className="overflow-hidden">
+                                            <img
+                                                onLoad={(e) =>
+                                                    getThumbnailColor(
+                                                        e.currentTarget,
+                                                    )
+                                                }
+                                                className="scale-101 h-150"
+                                                src={imageSrc}
+                                            ></img>
+                                        </div>
 
-                                <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:text-white/65 flex gap-2">
-                                    <table className="border-separate border-spacing-x-2">
-                                        <tbody>
-                                            <tr>
-                                                <th>DETECTED:</th>
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col gap-2">
+                                                <h2 className="text-xl">
+                                                    092 // Azure Strip - 1 Hour
+                                                    Immersive Soundfield
+                                                </h2>
 
-                                                <td>04-01-2026</td>
-                                            </tr>
+                                                <p className="text-sm text-white/75">
+                                                    The Azure Strip exists not
+                                                    to move people from one
+                                                    place to another, but to
+                                                    carry them through moments
+                                                    they...
+                                                </p>
+                                            </div>
 
-                                            <tr>
-                                                <th>TRANSMISSION:</th>
+                                            <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:text-white/65 flex gap-2">
+                                                <table className="border-separate border-spacing-x-2">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>DETECTED:</th>
 
-                                                <td>c_EdC85jKq4</td>
-                                            </tr>
+                                                            <td>04-01-2026</td>
+                                                        </tr>
 
-                                            <tr>
-                                                <th>DURATION:</th>
+                                                        <tr>
+                                                            <th>
+                                                                TRANSMISSION:
+                                                            </th>
 
-                                                <td>04-01-2026</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                            <td>c_EdC85jKq4</td>
+                                                        </tr>
 
-                                    <div className="border-2 border-white rounded-sm">
-                                        <QRCodeComponent
-                                            value={
-                                                "https://www.youtube.com/watch?v=c_EdC85jKq4"
-                                            }
-                                            size={64}
-                                            bgColor="#FFFFFF"
-                                            fgColor="#FFFFFF00"
-                                        />
-                                    </div>
+                                                        <tr>
+                                                            <th>DURATION:</th>
+
+                                                            <td>04-01-2026</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <div className="border-2 border-white">
+                                                    <QRCodeComponent
+                                                        value={
+                                                            "https://www.youtube.com/watch?v=c_EdC85jKq4"
+                                                        }
+                                                        size={64}
+                                                        bgColor="#FFFFFF"
+                                                        fgColor="#FFFFFF00"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
                                 </div>
                             </div>
-                        </span>
+
+                            {/* BG Card #2 */}
+                            <div
+                                className="-z-90 blur-sm absolute -right-20 h-[90%] gap-5 text-white font-[Oxanium] brightness-65 saturate-50"
+                                style={{
+                                    boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                    backgroundColor: `${averageThumbnailColors.mediumColor}50`,
+                                }}
+                            >
+                                <div className="bg-white/10 p-5 overflow-hidden relative">
+                                    <div className="grain-overlay"></div>
+
+                                    <span className="relative z-20 flex flex-col gap-5">
+                                        <div className="overflow-hidden">
+                                            <img
+                                                onLoad={(e) =>
+                                                    getThumbnailColor(
+                                                        e.currentTarget,
+                                                    )
+                                                }
+                                                className="scale-101 h-130"
+                                                src={imageSrcBg2}
+                                            ></img>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col gap-2">
+                                                <h2 className="text-xl">
+                                                    106 // Blue Meridian - 1
+                                                    Hour Calming Underwater
+                                                    Soundfield
+                                                </h2>
+
+                                                <p className="text-sm text-white/75">
+                                                    Blue Meridian is an immense
+                                                    circular corridor spanning
+                                                    several kilometers in
+                                                    diameter, forming...
+                                                </p>
+                                            </div>
+
+                                            <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:text-white/65 flex gap-2">
+                                                <table className="border-separate border-spacing-x-2">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>DETECTED:</th>
+
+                                                            <td>04-01-2026</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>
+                                                                TRANSMISSION:
+                                                            </th>
+
+                                                            <td>c_EdC85jKq4</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>DURATION:</th>
+
+                                                            <td>04-01-2026</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <div className="border-2 border-white">
+                                                    <QRCodeComponent
+                                                        value={
+                                                            "https://www.youtube.com/watch?v=c_EdC85jKq4"
+                                                        }
+                                                        size={64}
+                                                        bgColor="#FFFFFF"
+                                                        fgColor="#FFFFFF00"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <div className="card p-5 overflow-hidden relative rounded-md">
-                            <div className="grain-overlay"></div>
+                        {/* <h2 className="font-[Monocode] text-xl text-white text-center">
+                            LISTEN_NOW
+                        </h2> */}
+                        <div className="flex gap-2 justify-start">
+                            <div className="card overflow-hidden relative w-full">
+                                <div className="grain-overlay"></div>
 
-                            <span className="relative z-20 text-white flex justify-center">
-                                {/* <div className="font-[Oxanium]">YouTube</div> */}
+                                <span
+                                    className="relative p-3 z-20 text-white flex justify-start items-center gap-4 px-5"
+                                    style={{
+                                        boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                        backgroundColor: `${averageThumbnailColors.mediumColor}40`,
+                                    }}
+                                >
+                                    <img
+                                        src={youtubeSVG}
+                                        alt="Icon Description"
+                                        className="w-7 h-7"
+                                    />
+                                    <p className="font-[Oxanium]">
+                                        YouTube&nbsp;&nbsp;&nbsp;↗
+                                    </p>
+                                </span>
+                            </div>
 
-                                <img
-                                    src={youtubeSVG}
-                                    alt="Icon Description"
-                                    className="w-10 h-10"
-                                />
-                            </span>
-                        </div>
+                            <div className="card overflow-hidden relative w-full">
+                                <div className="grain-overlay"></div>
 
-                        <div className="card p-5 overflow-hidden relative rounded-md">
-                            <div className="grain-overlay"></div>
+                                <span
+                                    className="relative p-3 z-20 text-white flex justify-start items-center gap-4 px-5"
+                                    style={{
+                                        boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                        backgroundColor: `${averageThumbnailColors.mediumColor}40`,
+                                    }}
+                                >
+                                    <img
+                                        src={spotifySVG}
+                                        alt="Icon Description"
+                                        className="w-7 h-7"
+                                    />
+                                    <p className="font-[Oxanium]">
+                                        Spotify&nbsp;&nbsp;&nbsp;↗
+                                    </p>
+                                </span>
+                            </div>
 
-                            <span className="relative z-20 text-white flex justify-center">
-                                {/* <div className="font-[Oxanium]">Spotify</div> */}
+                            <div className="card overflow-hidden relative w-full">
+                                <div className="grain-overlay"></div>
 
-                                <img
-                                    src={spotifySVG}
-                                    alt="Icon Description"
-                                    className="w-10 h-10"
-                                />
-                            </span>
-                        </div>
+                                <span
+                                    className="relative p-3 z-20 text-white flex justify-start items-center gap-4 px-5"
+                                    style={{
+                                        boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                        backgroundColor: `${averageThumbnailColors.mediumColor}40`,
+                                    }}
+                                >
+                                    <img
+                                        src={itunesSVG}
+                                        alt="Icon Description"
+                                        className="w-7 h-7"
+                                    />
+                                    <p className="font-[Oxanium]">
+                                        Apple Music&nbsp;&nbsp;&nbsp;↗
+                                    </p>
+                                </span>
+                            </div>
 
-                        <div className="card p-5 overflow-hidden relative rounded-md">
-                            <div className="grain-overlay"></div>
+                            <div className="card overflow-hidden relative w-full">
+                                <div className="grain-overlay"></div>
 
-                            <span className="relative z-20 text-white flex justify-center">
-                                {/* <div className="font-[Oxanium]">Apple Music</div> */}
-
-                                <img
-                                    src={itunesSVG}
-                                    alt="Icon Description"
-                                    className="w-10 h-10"
-                                />
-                            </span>
-                        </div>
-
-                        <div className="card p-5 overflow-hidden relative rounded-md">
-                            <div className="grain-overlay"></div>
-
-                            <span className="relative z-20 text-white flex justify-center">
-                                {/* <div className="font-[Oxanium]">Tidal</div> */}
-
-                                <img
-                                    src={tidalSVG}
-                                    alt="Icon Description"
-                                    className="w-10 h-10"
-                                />
-                            </span>
+                                <span
+                                    className="relative p-3 z-20 text-white flex justify-start items-center gap-4 px-5"
+                                    style={{
+                                        boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                        backgroundColor: `${averageThumbnailColors.mediumColor}40`,
+                                    }}
+                                >
+                                    <img
+                                        src={tidalSVG}
+                                        alt="Icon Description"
+                                        className="w-7 h-7"
+                                    />
+                                    <p className="font-[Oxanium]">
+                                        Tidal&nbsp;&nbsp;&nbsp;↗
+                                    </p>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

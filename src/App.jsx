@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/sections/Header";
 import NewEntry from "./components/sections/NewEntry";
+import Archive from "./components/sections/Archive";
 
 function App() {
     return (
@@ -21,18 +22,19 @@ function App() {
             </nav>
 
             {/* 1. HEADER */}
-            <section className="h-screen w-full snap-start flex items-center justify-center">
+            <section className="h-screen w-full flex items-center justify-center">
+                {/* snap-start */}
                 <Header />
             </section>
 
             {/* 2. NEW ENTRY */}
-            <section className="h-screen w-full snap-start flex items-center justify-center">
+            <section className="h-screen w-full flex items-center justify-center">
                 <NewEntry />
             </section>
 
             {/* BROADCAST NODES - MAY BE MERGED WITH DIFFEENT SECTION */}
-            <section className="h-screen w-full snap-start flex items-center justify-center bg-green-500">
-                <h1 className="text-4xl font-bold text-white">Section 3</h1>
+            <section className="h-screen w-full flex items-center justify-center border border-red-500">
+                <Archive />
             </section>
         </main>
     );
