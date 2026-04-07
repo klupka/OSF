@@ -22,10 +22,14 @@ const Header = () => {
             />
 
             {/* Foreground */}
-            <div className="text-center z-10">
-                <h1 className="text-6xl font-bold text-white drop-shadow-lg font-[monocode]">
+            <div className="text-center z-10 flex flex-col gap-3 w-375">
+                <h1 className="text-6xl font-bold drop-shadow-lg font-[monocode]">
                     OBSIDIAN SOUNDFIELDS
                 </h1>
+                <div className="flex justify-center items-center gap-2 font-[Oxanium] hidden">
+                    <img src="./images/osf_favicon.png" className="h-5"></img>
+                    <div>blending reality.</div>
+                </div>
             </div>
         </section>
     );
