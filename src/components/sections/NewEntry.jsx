@@ -199,42 +199,33 @@ function NewEntry() {
                         onClick={() => {
                             setIsVisible((prev) => !prev);
                         }}
-                        className="text-xl"
+                        className="text-sm"
                     >
-                        -
+                        +
                     </button>
                 </h1>
 
                 <div
-                    className={`flex flex-col gap-10 w-full pb-30 bg-linear-to-b from-[#97979705] to-transparent pt-10 ${isVisible ? "visible" : "hidden"}`}
+                    className={`flex flex-col gap-10 w-full pb-30 bg-linear-to-b from-[#69696925] to-transparent pt-10 ${isVisible ? "visible" : "hidden"}`}
                 >
                     <div className="flex gap-10 h-full justify-center">
                         <div className="flex flex-col gap-10">
                             <div className="relative flex gap-0 items-center">
-                                {/* BG Card #1 */}
-                                <div
-                                    className="-z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50"
-                                    style={
+                                {/* style={
                                         {
-                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
-                                            // backgroundColor: `${averageThumbnailColors.mediumColor}50`,
+                                            boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                            backgroundColor: `${averageThumbnailColors.mediumColor}50`,
                                         }
-                                    }
-                                >
+                                    } */}
+
+                                {/* BG Card #1 */}
+                                <div className="-z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
                                         <span className="relative z-20 flex flex-col gap-5">
                                             <div className="overflow-hidden rounded-xl">
-                                                <img
-                                                    // onLoad={(e) =>
-                                                    //     getThumbnailColor(
-                                                    //         e.currentTarget,
-                                                    //     )
-                                                    // }
-                                                    className="scale-101 h-130"
-                                                    // src={imageSrcBg1}
-                                                ></img>
+                                                <img className="scale-101 h-130"></img>
                                             </div>
 
                                             <div className="flex justify-between">
@@ -308,15 +299,7 @@ function NewEntry() {
                                 </div>
 
                                 {/* Main Card */}
-                                <div
-                                    className="z-10 flex gap-5  font-[Oxanium] transition-all group"
-                                    style={
-                                        {
-                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
-                                            // backgroundColor: `${averageThumbnailColors.mediumColor}50`,
-                                        }
-                                    }
-                                >
+                                <div className="z-10 flex gap-5  font-[Oxanium] transition-all group">
                                     <div className="card p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -406,29 +389,13 @@ function NewEntry() {
                                 </div>
 
                                 {/* BG Card #2 */}
-                                <div
-                                    className="-z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-50"
-                                    style={
-                                        {
-                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
-                                            // backgroundColor: `${averageThumbnailColors.mediumColor}50`,
-                                        }
-                                    }
-                                >
+                                <div className="-z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
                                         <span className="relative z-20 flex flex-col gap-5">
                                             <div className="overflow-hidden">
-                                                <img
-                                                    // onLoad={(e) =>
-                                                    //     getThumbnailColor(
-                                                    //         e.currentTarget,
-                                                    //     )
-                                                    // }
-                                                    className="scale-101 h-130"
-                                                    // src={imageSrcBg2}
-                                                ></img>
+                                                <img className="scale-101 h-130"></img>
                                             </div>
 
                                             <div className="flex justify-between">

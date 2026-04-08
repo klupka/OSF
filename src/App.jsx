@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/sections/Header";
 import NewEntry from "./components/sections/NewEntry";
-import Archive from "./components/sections/Archive";
-import Platforms from "./components/sections/Platforms";
+import About from "./components/sections/About";
 
 import osfLogo from "./assets/images/osf_logo.png";
 
@@ -69,7 +68,6 @@ function App() {
                     className="h-screen w-full flex items-center justify-center"
                     id="header-section"
                 >
-                    {/* snap-start */}
                     <Header />
                 </section>
 
@@ -81,10 +79,12 @@ function App() {
                     <NewEntry />
                 </section>
 
-                {/* BROADCAST NODES - MAY BE MERGED WITH DIFFEENT SECTION */}
-                <section className="h-screen w-375 flex flex-col items-center justify-center">
-                    {/* <Archive /> */}
-                    <Archive />
+                {/* ABOUT */}
+                <section
+                    className="h-screen w-375 flex flex-col items-center justify-center"
+                    id="about-section"
+                >
+                    <About />
                 </section>
             </main>
         </>

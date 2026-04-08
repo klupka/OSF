@@ -26,10 +26,10 @@ const Header = () => {
                 <h1 className="text-6xl font-bold drop-shadow-lg font-[monocode]">
                     OBSIDIAN SOUNDFIELDS
                 </h1>
-                <div className="flex justify-center items-center gap-2 font-[Oxanium] hidden">
+                {/* <div className="flex justify-center items-center gap-2 font-[Oxanium] hidden">
                     <img src="./images/osf_favicon.png" className="h-5"></img>
                     <div>blending reality.</div>
-                </div>
+                </div> */}
             </div>
         </section>
     );
