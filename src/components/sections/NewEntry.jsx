@@ -12,7 +12,7 @@ import osfGlassLogo from "../../assets/images/osf_glass_logo.png";
 // fast-average-color
 import { useEffect, useState, useRef } from "react";
 import { FastAverageColor } from "fast-average-color";
-import thumbnailImage from "../../assets/images/maxresdefault.jpg";
+import thumbnailImage from "../../assets/images/maxresdefault3.jpg";
 import thumbnailImage2 from "../../assets/images/maxresdefault2.jpg";
 import thumbnailImage3 from "../../assets/images/maxresdefault4.jpg";
 
@@ -137,12 +137,12 @@ function NewEntry() {
 
                     console.log({ lightColor, mediumColor, darkColor });
                     setAverageThumbnailColors({
-                        // lightColor: lightColor,
-                        // mediumColor: mediumColor,
-                        // darkColor: darkColor,
-                        lightColor: "#adadad",
-                        mediumColor: "#adadad",
-                        darkColor: "#adadad",
+                        lightColor: lightColor,
+                        mediumColor: mediumColor,
+                        darkColor: darkColor,
+                        // lightColor: "#adadad",
+                        // mediumColor: "#adadad",
+                        // darkColor: "#adadad",
                     });
 
                     // 4. Finish loading
@@ -160,7 +160,7 @@ function NewEntry() {
         };
     }, [imageSrc]); // Runs again if the image source changes
 
-    const [isVisible, setIsVisible] = useState(true);
+    // const [isVisible, setIsVisible] = useState(true);
 
     if (isLoading == false && averageThumbnailColors !== null) {
         return (
@@ -193,22 +193,26 @@ function NewEntry() {
                 </div>
 
                 {/* Foreground */}
-                <h1 className="font-[Monocode] text-sm text-left border-b-2 border-white/15 border-dotted w-full flex justify-between">
-                    <p>[01] LATEST_ENTRY</p>
+                <h1 className="font-[Monocode] text-sm text-left border-b-0 border-white/50 border-dotted w-full flex justify-between items-center">
+                    <p className="w-fit whitespace-nowrap">LATEST_ENTRY</p>
+                    <div className=" text-xs w-full flex flex-col px-1 m-0">
+                        <div className="w-full border-b-2 border-white/50 border-dotted"></div>
+                        <div className="w-full border-b-2 border-white/0 border-dashed"></div>
+                    </div>
                     <button
-                        onClick={() => {
-                            setIsVisible((prev) => !prev);
-                        }}
+                        // onClick={() => {
+                        //     setIsVisible((prev) => !prev);
+                        // }}
                         className="text-sm"
                     >
-                        +
+                        [01]
                     </button>
                 </h1>
 
                 <div
-                    className={`flex flex-col gap-10 w-full pb-30 bg-linear-to-b from-[#69696925] to-transparent pt-10 ${isVisible ? "visible" : "hidden"}`}
+                    className={`flex flex-col gap-10 w-full pb-30 to-[#69696925] from-transparent p-5`} //${isVisible ? "visible" : "hidden"}
                 >
-                    <div className="flex gap-10 h-full justify-center">
+                    <div className="flex gap-10 h-full justify-between">
                         <div className="flex flex-col gap-10">
                             <div className="relative flex gap-0 items-center">
                                 {/* style={
@@ -219,7 +223,7 @@ function NewEntry() {
                                     } */}
 
                                 {/* BG Card #1 */}
-                                <div className="-z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
+                                <div className="hidden -z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -299,7 +303,15 @@ function NewEntry() {
                                 </div>
 
                                 {/* Main Card */}
-                                <div className="z-10 flex gap-5  font-[Oxanium] transition-all group">
+                                <div
+                                    className="z-10 flex gap-5 font-[Oxanium] transition-all group"
+                                    style={
+                                        {
+                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
+                                            // backgroundColor: `${averageThumbnailColors.mediumColor}`,
+                                        }
+                                    }
+                                >
                                     <div className="card p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -389,7 +401,7 @@ function NewEntry() {
                                 </div>
 
                                 {/* BG Card #2 */}
-                                <div className="-z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
+                                <div className="hidden -z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -468,7 +480,7 @@ function NewEntry() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2 justify-center">
+                        <div className="flex flex-col gap-2 justify-center grow items-center">
                             <div className="flex flex-col gap-5 justify-center items-center pb-5">
                                 <img src={osfGlassLogo} className="h-30"></img>
                                 <p className=" font-[Monocode]">
