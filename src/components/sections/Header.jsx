@@ -1,6 +1,8 @@
 import React from "react";
 import bgVideo from "../../assets/videos/hero_background.mp4";
 
+import BlurEffect from "react-progressive-blur";
+
 const Header = () => {
     return (
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">

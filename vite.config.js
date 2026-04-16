@@ -8,6 +8,7 @@ export default defineConfig({
             fontFamily: {
                 monocode: ["Monocode", "sans-serif"],
                 oxanium: ["Oxanium", "sans-serif"],
+                ppfraktion: ["PPFraktion", "sans-serif"],
             },
         },
     },

@@ -1,13 +1,16 @@
 import Grainient from "../Grainient";
 import QRCode from "react-qr-code";
+import Barcode from "react-barcode";
 
 // SVGs
 import itunesSVG from "../../assets/images/itunes.svg";
 import youtubeSVG from "../../assets/images/youtube.svg";
 import tidalSVG from "../../assets/images/tidal.svg";
 import spotifySVG from "../../assets/images/spotify.svg";
-import angleRight from "../../assets/images/angle-right.svg";
+// import angleRight from "../../assets/images/angle-right.svg";
+import angleRight from "../../assets/images/arrow-up-right.svg";
 import osfGlassLogo from "../../assets/images/osf_glass_logo.png";
+import osfLogo from "../../assets/images/osf_logo.png";
 
 // fast-average-color
 import { useEffect, useState, useRef } from "react";
@@ -16,10 +19,13 @@ import thumbnailImage from "../../assets/images/maxresdefault3.jpg";
 import thumbnailImage2 from "../../assets/images/maxresdefault2.jpg";
 import thumbnailImage3 from "../../assets/images/maxresdefault4.jpg";
 
+import waveGIF from "../../assets/videos/wave.gif";
+
 // Inside your component, use it like this:
 const QRCodeComponent = QRCode.default ? QRCode.default : QRCode;
 
 function NewEntry() {
+    const latestVideoURL = "https://www.youtube.com/watch?v=c_EdC85jKq4";
     const imageSrc = thumbnailImage;
     const imageSrcBg1 = thumbnailImage2;
     const imageSrcBg2 = thumbnailImage3;
@@ -165,65 +171,108 @@ function NewEntry() {
     if (isLoading == false && averageThumbnailColors !== null) {
         return (
             <section className="relative h-screen w-full flex flex-col items-center justify-center">
-                <div className="absolute top-0 left-0 w-full h-full object-cover -z-10">
-                    {/* <Grainient
-                        color1={averageThumbnailColors.lightColor} // light
-                        color2={averageThumbnailColors.mediumColor} // mid
-                        color3={averageThumbnailColors.darkColor} // dark
-                        timeSpeed={0} // was 0.5
-                        colorBalance={0}
-                        warpStrength={1}
-                        warpFrequency={12}
-                        warpSpeed={6}
-                        warpAmplitude={80}
-                        blendAngle={0}
-                        blendSoftness={0.05}
-                        rotationAmount={500}
-                        noiseScale={2}
-                        grainAmount={0.05}
-                        grainScale={2}
-                        grainAnimated={false}
-                        contrast={1}
-                        gamma={1}
-                        saturation={0.75}
-                        centerX={0}
-                        centerY={0}
-                        zoom={0.8}
-                    /> */}
-                </div>
-
                 {/* Foreground */}
-                <h1 className="font-[Monocode] text-sm text-left border-b-0 border-white/50 border-dotted w-full flex justify-between items-center">
-                    <p className="w-fit whitespace-nowrap">LATEST_ENTRY</p>
+                <h1 className="font-[Monocode] text-left border-b-0 border-white/50 border-dotted w-full flex gap-2 mb-25">
+                    <p className="w-fit whitespace-nowrap text-[65px] font-bold">
+                        LATEST
+                    </p>
+                    <p className="text-sm">[01]</p>
                     <div className=" text-xs w-full flex flex-col px-1 m-0">
-                        <div className="w-full border-b-2 border-white/50 border-dotted"></div>
-                        <div className="w-full border-b-2 border-white/0 border-dashed"></div>
+                        {/* <div className="w-full border-b-2 border-white/50 border-dotted"></div> */}
+                        {/* <div className="w-full border-b-2 border-white/0 border-dashed"></div> */}
                     </div>
-                    <button
-                        // onClick={() => {
-                        //     setIsVisible((prev) => !prev);
-                        // }}
-                        className="text-sm"
-                    >
+                    {/* <button
                         [01]
-                    </button>
+                    </button> */}
                 </h1>
 
                 <div
-                    className={`flex flex-col gap-10 w-full pb-30 to-[#69696925] from-transparent p-5`} //${isVisible ? "visible" : "hidden"}
+                    className={`flex flex-col w-full h-150`} //${isVisible ? "visible" : "hidden"} card p-5
                 >
-                    <div className="flex gap-10 h-full justify-between">
-                        <div className="flex flex-col gap-10">
-                            <div className="relative flex gap-0 items-center">
-                                {/* style={
+                    <div className="flex gap-5 h-full justify-between">
+                        <div className="text-sm uppercase font-[Monocode] flex flex-col justify-between">
+                            <div className="flex flex-col gap-5">
+                                <div className="flex w-full justify-between">
+                                    <p className="text-lg font-[PPFraktion]">
+                                        Azure Strip
+                                    </p>
+                                    <p className="text-lg font-[PPFraktion]">
+                                        092
+                                    </p>
+                                </div>
+                                <p className="text-xs /75 text-justify font-[PPFraktion]">
+                                    The Azure Strip exists not to move people
+                                    from one place to another, but to carry them
+                                    through moments they would otherwise refuse
+                                    to leave behind, a long corridor washed in
+                                    blue light tuned with minute precision. The
+                                    color was not chosen arbitrarily; extensive
+                                    research identified a consistent cognitive
+                                    response to a specific range of blue, linked
+                                    to perceptions of beginnings, most commonly
+                                    associated with the early morning sky and
+                                    the sense of forward possibility it implies.
+                                    People often enter the Strip during
+                                    hesitation or indecision, and once inside it
+                                    does not restrain them, only insists on
+                                    continuation, subtly adjusting its length,
+                                    rhythm, and illumination to match the pace
+                                    of what they are avoiding. Thoughts that
+                                    once felt fixed begin to loosen, not through
+                                    understanding or resolution, but through
+                                    endurance alone, and when the Strip finally
+                                    releases someone, it does so quietly,
+                                    leaving them unable to name what changed,
+                                    only certain that the moment they were
+                                    trapped in no longer exists behind them.
+                                </p>
+                            </div>
+
+                            {/* <img src={waveGIF} alt="Wave Animation" /> */}
+
+                            <div className="text-xs [&_th]:font-normal [&_td]:text-right [&_th]:text-left [&_th]:text-[#cbcbcb]/90 flex gap-5 justify-between font-[PPFraktion] border-t-1 border-dashed border-white/25 pt-5">
+                                <div className="border-2 border-[#ffffff]">
+                                    <QRCodeComponent
+                                        value={latestVideoURL}
+                                        size={64}
+                                        bgColor="#FFFFFF"
+                                        fgColor="#FFFFFF00"
+                                    />
+                                </div>
+                                <table className="border-separate border-spacing-x-2 w-full">
+                                    <tbody>
+                                        <tr>
+                                            <th>DETECTED:</th>
+
+                                            <td>04-01-2026</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>TRANSMISSION:</th>
+
+                                            <td>c_EdC85jKq4</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>DURATION:</th>
+
+                                            <td>01:00:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div className="relative flex items-start justify-center gap-2">
+                            {/* style={
                                         {
                                             boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
                                             backgroundColor: `${averageThumbnailColors.mediumColor}50`,
                                         }
                                     } */}
 
-                                {/* BG Card #1 */}
-                                <div className="hidden -z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
+                            {/* BG Card #1 */}
+                            {/* <div className="hidden -z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -300,39 +349,30 @@ function NewEntry() {
                                             </div>
                                         </span>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                {/* Main Card */}
-                                <div
-                                    className="z-10 flex gap-5 font-[Oxanium] transition-all group"
-                                    style={
-                                        {
-                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
-                                            // backgroundColor: `${averageThumbnailColors.mediumColor}`,
-                                        }
-                                    }
-                                >
-                                    <div className="card p-5 overflow-hidden relative">
-                                        <div className="grain-overlay"></div>
+                            {/* Main Card */}
+                            <div className="z-10 flex gap-5 font-[Oxanium] transition-all group h-150">
+                                <div className="card p-[1px] overflow-hidden relative aspect-video h-full">
+                                    {/* card */}
+                                    {/* <div className="grain-overlay"></div> */}
 
-                                        <span className="relative z-20 flex flex-col gap-5">
-                                            <div className="overflow-hidden">
-                                                <img
-                                                    onLoad={(e) =>
-                                                        getThumbnailColor(
-                                                            e.currentTarget,
-                                                        )
-                                                    }
-                                                    // className="scale-101 h-150 transition-all"
-                                                    // src={imageSrc}
-                                                ></img>
-                                                <iframe
-                                                    className="h-145 w-full"
-                                                    src="https://www.youtube.com/embed/SLda51T53vw"
-                                                ></iframe>
-                                            </div>
+                                    <span className="relative z-20 flex flex-col gap-5 h-full w-full">
+                                        <div className="overflow-hidden h-full w-full">
+                                            <img
+                                                onLoad={(e) =>
+                                                    getThumbnailColor(
+                                                        e.currentTarget,
+                                                    )
+                                                }
+                                            ></img>
+                                            <iframe
+                                                className="h-full w-full"
+                                                src="https://www.youtube.com/embed/SLda51T53vw"
+                                            ></iframe>
+                                        </div>
 
-                                            <div className="flex justify-between">
+                                        {/* <div className="flex justify-between hidden">
                                                 <div className="flex flex-col gap-2">
                                                     <h2 className="text-xl font-bold">
                                                         092 // Azure Strip - 1
@@ -395,13 +435,13 @@ function NewEntry() {
                                                         />
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </span>
-                                    </div>
+                                            </div> */}
+                                    </span>
                                 </div>
+                            </div>
 
-                                {/* BG Card #2 */}
-                                <div className="hidden -z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
+                            {/* BG Card #2 */}
+                            {/* <div className="hidden -z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
                                     <div className="bg-white/10 p-5 overflow-hidden relative">
                                         <div className="grain-overlay"></div>
 
@@ -476,20 +516,50 @@ function NewEntry() {
                                             </div>
                                         </span>
                                     </div>
+                                </div> */}
+                            <div className="flex flex-col justify-between items-center h-full">
+                                <div className="rotate-90 w-10 m-0 p-0">
+                                    <Barcode
+                                        value="azure strip"
+                                        background="#FFFFFF00"
+                                        textMargin="0"
+                                        magin="0"
+                                        fontSize="0"
+                                        marginTop="0"
+                                        marginBottom="0"
+                                        marginLeft="0"
+                                        marginRight="0"
+                                        lineColor="#FFFFFF"
+                                        displayValue="false"
+                                        className="m-0 p-0"
+                                        width="1"
+                                        height="25"
+                                    />
+                                </div>
+                                {/* <img src={osfLogo} className="h-6"></img> */}
+                                <div className="font-[PPFraktion] flex flex-col -space-y-3 [&_p]:rotate-90 -mb-1.5">
+                                    <p>O</p>
+                                    <p>S</p>
+                                    <p>F</p>
+                                    <p>-</p>
+                                    {/* <p>/</p> */}
+                                    <p>0</p>
+                                    <p>9</p>
+                                    <p>2</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2 justify-center grow items-center">
+                        <div className="flex flex-col gap-2 justify-center grow items-center hidden">
                             <div className="flex flex-col gap-5 justify-center items-center pb-5">
-                                <img src={osfGlassLogo} className="h-30"></img>
+                                <img src={osfGlassLogo} className="h-40"></img>
                                 <p className=" font-[Monocode]">
                                     OBSIDIAN SOUNDFIELDS
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 justify-start w-65">
                                 <a
-                                    className="card overflow-hidden relative w-full"
+                                    className="card overflow-hidden relative w-full group transition-all"
                                     href="https://www.youtube.com/@OBSIDIANSOUNDFIELDS"
                                     target="_blank"
                                 >
@@ -511,14 +581,14 @@ function NewEntry() {
                                             <p>YouTube</p>
                                             <img
                                                 src={angleRight}
-                                                className="w-5 h-5"
+                                                className="w-5 h-5 opacity-75 group-hover:opacity-100"
                                             />
                                         </div>
                                     </span>
                                 </a>
 
                                 <a
-                                    className="card overflow-hidden relative w-full"
+                                    className="card overflow-hidden relative w-full group transition-all"
                                     href="https://open.spotify.com/artist/6CUKjF2wMpVVLiHrKSshzE?si=j536xbPhRhOdMP-sJQbj4w"
                                     target="_blank"
                                 >
@@ -540,14 +610,14 @@ function NewEntry() {
                                             <p>Spotify</p>
                                             <img
                                                 src={angleRight}
-                                                className="w-5 h-5"
+                                                className="w-5 h-5 opacity-75 group-hover:opacity-100"
                                             />
                                         </div>
                                     </span>
                                 </a>
 
                                 <a
-                                    className="card overflow-hidden relative w-full"
+                                    className="card overflow-hidden relative w-full group transition-all"
                                     href="https://music.apple.com/us/artist/obsidian-soundfields/1736659531"
                                     target="_blank"
                                 >
@@ -569,14 +639,14 @@ function NewEntry() {
                                             <p>Apple Music</p>
                                             <img
                                                 src={angleRight}
-                                                className="w-5 h-5"
+                                                className="w-5 h-5 opacity-75 group-hover:opacity-100"
                                             />
                                         </div>
                                     </span>
                                 </a>
 
                                 <a
-                                    className="card overflow-hidden relative w-full hover:cursor-pointer"
+                                    className="card overflow-hidden relative w-full hover:cursor-pointer group transition-all"
                                     target="_blank"
                                     href="https://tidal.com/artist/51167375"
                                 >
@@ -598,7 +668,7 @@ function NewEntry() {
                                             <p>Tidal</p>
                                             <img
                                                 src={angleRight}
-                                                className="w-5 h-5"
+                                                className="w-5 h-5 opacity-75 group-hover:opacity-100"
                                             />
                                         </div>
                                     </span>

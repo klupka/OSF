@@ -7,6 +7,11 @@
     src: url("./assets/fonts/Monocode.ttf");
 }
 
+@font-face {
+    font-family: "PPFraktion";
+    src: url("./assets/fonts/PPFraktionMono-Regular.otf");
+}
+
 html {
     background: #060606;
     /* background: #c2c2c2; */
@@ -34,7 +39,7 @@ html {
 
 .card:hover {
     /* filter: brightness(115%); */
-    background: hsl(from var(--surface-3) h s l / 0.15);
+    /* background: hsl(from var(--surface-3) h s l / 0.15); */
 }
 
 .card::before {
@@ -69,8 +74,8 @@ html {
     --border-width: 1px;
     /* position: relative; */
 
-    background: hsl(from var(--surface-3) h s l / 0.05);
-    backdrop-filter: blur(35px);
+    /* background: hsl(from var(--surface-3) h s l / 0.05); */
+    /* backdrop-filter: blur(35px); */
 
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
@@ -83,7 +88,7 @@ html {
     z-index: -1;
     inset: 0;
     border-radius: inherit;
-    border: var(--border-width) solid transparent;
+    /* border: var(--border-width) solid transparent; */
     background: linear-gradient(var(--border-2), var(--nav-border-1)) border-box;
     mask:
         linear-gradient(black, black) border-box,

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/sections/Header";
 import NewEntry from "./components/sections/NewEntry";
 import About from "./components/sections/About";
+import Test from "./components/sections/Test";
+
+import BlurEffect from "react-progressive-blur";
 
 import osfLogo from "./assets/images/osf_logo.png";
 
@@ -41,13 +44,20 @@ function App() {
                 </div>
             </nav> */}
 
-                <nav
-                    className={`fixed top-0 w-full z-9999 transition-all duration-500 ease-in-out ${
-                        isAtTop ? "" : "top-nav"
-                    }`}
+                <div
+                    className={`fixed top-0 w-full z-90 transition-all duration-500 ease-in-out`}
                 >
-                    {isAtTop ?? <div className="grain-overlay"></div>}
-                    <div className="flex justify-between items-center px-3 py-2">
+                    <BlurEffect
+                        className={`h-45 bg-linear-to-b from-[#060606] to-transparent`}
+                        intensity={100}
+                        position="top"
+                    />
+                </div>
+
+                <nav
+                    className={`fixed top-0 w-full z-100 transition-all duration-500 ease-in-out`}
+                >
+                    <div className="flex justify-between items-center px-3 py-2 z-100">
                         <img src={osfLogo} className="w-7 h-7"></img>
                         <ul className="font-[Monocode] text-sm flex px-5 gap-10 py-2 justify-end items-center">
                             <li>
@@ -71,21 +81,23 @@ function App() {
                     <Header />
                 </section>
 
-                {/* 2. NEW ENTRY */}
-                <section
-                    className="h-screen w-375 flex flex-col items-center justify-center"
-                    id="new-entry-section"
-                >
-                    <NewEntry />
-                </section>
+                <div className="flex flex-col gap-50">
+                    {/* 2. NEW ENTRY */}
+                    <section
+                        className="h-300 w-full max-w-375 flex flex-col items-center justify-center"
+                        id="new-entry-section"
+                    >
+                        <NewEntry />
+                    </section>
 
-                {/* ABOUT */}
-                <section
-                    className="h-screen w-375 flex flex-col items-center justify-center"
-                    id="about-section"
-                >
-                    <About />
-                </section>
+                    {/* ABOUT */}
+                    <section
+                        className="h-300 w-full max-w-375 flex flex-col items-center justify-center"
+                        id="about-section"
+                    >
+                        <About />
+                    </section>
+                </div>
             </main>
         </>
     );
