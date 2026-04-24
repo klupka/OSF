@@ -10,6 +10,7 @@ import osfLogo from "./assets/images/osf_logo.png";
 
 import { ReactLenis, useLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
+import Process from "./components/sections/Process";
 
 function App() {
     const [isAtTop, setIsAtTop] = useState(true);
@@ -24,6 +25,19 @@ function App() {
             setIsAtTop(false);
         }
     });
+
+    const scrollToSection = (e, id) => {
+        e.preventDefault(); // Stop the default #id jump
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center", // This is the magic line that centers it
+                inline: "nearest",
+            });
+        }
+    };
 
     return (
         <>
@@ -61,13 +75,34 @@ function App() {
                         <img src={osfLogo} className="w-7 h-7"></img>
                         <ul className="font-[Monocode] text-sm flex px-5 gap-10 py-2 justify-end items-center">
                             <li>
-                                <a href="#new-entry-section">01</a>
+                                <a
+                                    href="#new-entry-section"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "new-entry-section")
+                                    }
+                                >
+                                    01
+                                </a>
                             </li>
                             <li>
-                                <a href="/services">02</a>
+                                <a
+                                    href="#overview-section"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "overview-section")
+                                    }
+                                >
+                                    02
+                                </a>
                             </li>
                             <li>
-                                <a href="/contact">03</a>
+                                <a
+                                    href="#process-section"
+                                    onClick={(e) =>
+                                        scrollToSection(e, "process-section")
+                                    }
+                                >
+                                    03
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -81,21 +116,29 @@ function App() {
                     <Header />
                 </section>
 
-                <div className="flex flex-col gap-50">
+                <div className="flex flex-col gap-[500px]">
                     {/* 2. NEW ENTRY */}
                     <section
-                        className="h-300 w-full max-w-375 flex flex-col items-center justify-center"
+                        className="w-full max-w-375 flex flex-col items-center justify-center"
                         id="new-entry-section"
                     >
                         <NewEntry />
                     </section>
 
-                    {/* ABOUT */}
+                    {/* OVERVIEW */}
                     <section
-                        className="h-300 w-full max-w-375 flex flex-col items-center justify-center"
-                        id="about-section"
+                        className="w-full max-w-375 flex flex-col items-center justify-center"
+                        id="overview-section"
                     >
                         <About />
+                    </section>
+
+                    {/* PROCESS */}
+                    <section
+                        className="w-full max-w-375 flex flex-col items-center justify-center mb-[500px]"
+                        id="process-section"
+                    >
+                        <Process />
                     </section>
                 </div>
             </main>

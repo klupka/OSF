@@ -170,7 +170,7 @@ function NewEntry() {
 
     if (isLoading == false && averageThumbnailColors !== null) {
         return (
-            <section className="relative h-screen w-full flex flex-col items-center justify-center">
+            <section className="relative w-full flex flex-col items-center justify-start border border-red-500/0">
                 {/* Foreground */}
                 <h1 className="font-[Monocode] text-left border-b-0 border-white/50 border-dotted w-full flex gap-2 mb-25">
                     <p className="w-fit whitespace-nowrap text-[65px] font-bold">
@@ -186,11 +186,9 @@ function NewEntry() {
                     </button> */}
                 </h1>
 
-                <div
-                    className={`flex flex-col w-full h-150`} //${isVisible ? "visible" : "hidden"} card p-5
-                >
-                    <div className="flex gap-5 h-full justify-between">
-                        <div className="text-sm uppercase font-[Monocode] flex flex-col justify-between">
+                <div className={`flex flex-col w-full h-150`}>
+                    <div className="flex gap-5 h-full justify-between w-full">
+                        <div className="text-sm uppercase font-[Monocode] flex flex-col justify-between bg-red-500/0 w-1/3">
                             <div className="flex flex-col gap-5">
                                 <div className="flex w-full justify-between">
                                     <p className="text-lg font-[PPFraktion]">
@@ -228,297 +226,73 @@ function NewEntry() {
                                 </p>
                             </div>
 
-                            {/* <img src={waveGIF} alt="Wave Animation" /> */}
-
-                            <div className="text-xs [&_th]:font-normal [&_td]:text-right [&_th]:text-left [&_th]:text-[#cbcbcb]/90 flex gap-5 justify-between font-[PPFraktion] border-t-1 border-dashed border-white/25 pt-5">
+                            <div className="text-xs [&_th]:font-normal [&_td]:text-left [&_th]:text-left flex gap-5 justify-between font-[PPFraktion]">
                                 <div className="border-2 border-[#ffffff]">
                                     <QRCodeComponent
                                         value={latestVideoURL}
-                                        size={64}
+                                        size={48}
                                         bgColor="#FFFFFF"
                                         fgColor="#FFFFFF00"
                                     />
                                 </div>
-                                <table className="border-separate border-spacing-x-2 w-full">
+                                <table className="border-separate border-spacing-x-2 w-full text-[8px]">
                                     <tbody>
                                         <tr>
-                                            <th>DETECTED:</th>
+                                            {/* <th>DETECTED</th> */}
 
                                             <td>04-01-2026</td>
                                         </tr>
 
                                         <tr>
-                                            <th>TRANSMISSION:</th>
+                                            {/* <th>TRANSMISSION</th> */}
 
                                             <td>c_EdC85jKq4</td>
                                         </tr>
 
                                         <tr>
-                                            <th>DURATION:</th>
+                                            {/* <th>DURATION</th> */}
 
                                             <td>01:00:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table className="border-separate border-spacing-x-2 w-full text-[8px]">
+                                    <tbody>
+                                        <tr>
+                                            <th>OBS // 観測 ... 45,721</th>
+                                        </tr>
+                                        <tr>
+                                            <th>RSN // 共鳴 ... 1,832</th>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <div className="relative flex items-start justify-center gap-2">
-                            {/* style={
-                                        {
-                                            boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
-                                            backgroundColor: `${averageThumbnailColors.mediumColor}50`,
-                                        }
-                                    } */}
-
-                            {/* BG Card #1 */}
-                            {/* <div className="hidden -z-90 blur-xs absolute left-1/2 -translate-x-1/2 -bottom-10 h-[90%] w-[95%] gap-5  font-[Oxanium] brightness-65 saturate-50">
-                                    <div className="bg-white/10 p-5 overflow-hidden relative">
-                                        <div className="grain-overlay"></div>
-
-                                        <span className="relative z-20 flex flex-col gap-5">
-                                            <div className="overflow-hidden rounded-xl">
-                                                <img className="scale-101 h-130"></img>
-                                            </div>
-
-                                            <div className="flex justify-between">
-                                                <div className="flex flex-col gap-2">
-                                                    <h2 className="text-xl">
-                                                        092 // Azure Strip - 1
-                                                        Hour Immersive
-                                                        Soundfield
-                                                    </h2>
-
-                                                    <p className="text-sm /75">
-                                                        The Azure Strip exists
-                                                        not to move people from
-                                                        one place to another,
-                                                        but to carry them
-                                                        through moments they
-                                                        would otherwise refuse
-                                                        to leave behind...
-                                                    </p>
-                                                </div>
-
-                                                <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:/65 flex gap-2">
-                                                    <table className="border-separate border-spacing-x-2">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>
-                                                                    DETECTED:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    TRANSMISSION:
-                                                                </th>
-
-                                                                <td>
-                                                                    c_EdC85jKq4
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    DURATION:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <div className="border-2 border-[#cbcbcb]">
-                                                        <QRCodeComponent
-                                                            value={
-                                                                "https://www.youtube.com/watch?v=c_EdC85jKq4"
-                                                            }
-                                                            size={64}
-                                                            bgColor="#cbcbcb"
-                                                            fgColor="#FFFFFF00"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div> */}
-
-                            {/* Main Card */}
-                            <div className="z-10 flex gap-5 font-[Oxanium] transition-all group h-150">
-                                <div className="card p-[1px] overflow-hidden relative aspect-video h-full">
-                                    {/* card */}
-                                    {/* <div className="grain-overlay"></div> */}
-
+                        <div className="relative flex items-start justify-center gap-2 bg-blue-500/0 w-2/3">
+                            {/* VIDEO */}
+                            <div className="z-10 flex gap-5 font-[Oxanium] transition-all group h-150 w-full">
+                                <div className="card p-px overflow-hidden relative w-full h-full">
                                     <span className="relative z-20 flex flex-col gap-5 h-full w-full">
                                         <div className="overflow-hidden h-full w-full">
                                             <img
-                                                onLoad={(e) =>
-                                                    getThumbnailColor(
-                                                        e.currentTarget,
-                                                    )
-                                                }
+                                            // onLoad={(e) =>
+                                            //     getThumbnailColor(
+                                            //         e.currentTarget,
+                                            //     )
+                                            // }
                                             ></img>
                                             <iframe
                                                 className="h-full w-full"
                                                 src="https://www.youtube.com/embed/SLda51T53vw"
                                             ></iframe>
                                         </div>
-
-                                        {/* <div className="flex justify-between hidden">
-                                                <div className="flex flex-col gap-2">
-                                                    <h2 className="text-xl font-bold">
-                                                        092 // Azure Strip - 1
-                                                        Hour Immersive
-                                                        Soundfield
-                                                    </h2>
-
-                                                    <p className="text-sm /75">
-                                                        The Azure Strip exists
-                                                        not to move people from
-                                                        one place to another,
-                                                        but to carry them
-                                                        through moments they...
-                                                    </p>
-                                                </div>
-
-                                                <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:text-[#cbcbcb]/65 flex gap-2">
-                                                    <table className="border-separate border-spacing-x-2">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>
-                                                                    DETECTED:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    TRANSMISSION:
-                                                                </th>
-
-                                                                <td>
-                                                                    c_EdC85jKq4
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    DURATION:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <div className="border-2 border-[#cbcbcb]">
-                                                        <QRCodeComponent
-                                                            value={
-                                                                "https://www.youtube.com/watch?v=c_EdC85jKq4"
-                                                            }
-                                                            size={64}
-                                                            bgColor="#cbcbcb"
-                                                            fgColor="#FFFFFF00"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div> */}
                                     </span>
                                 </div>
                             </div>
-
-                            {/* BG Card #2 */}
-                            {/* <div className="hidden -z-99 blur-sm absolute left-1/2 -translate-x-1/2 -bottom-18 h-[90%] w-[90%] gap-5  font-[Oxanium] brightness-65 saturate-50 opacity-25">
-                                    <div className="bg-white/10 p-5 overflow-hidden relative">
-                                        <div className="grain-overlay"></div>
-
-                                        <span className="relative z-20 flex flex-col gap-5">
-                                            <div className="overflow-hidden">
-                                                <img className="scale-101 h-130"></img>
-                                            </div>
-
-                                            <div className="flex justify-between">
-                                                <div className="flex flex-col gap-2">
-                                                    <h2 className="text-xl">
-                                                        106 // Blue Meridian - 1
-                                                        Hour Calming Underwater
-                                                        Soundfield
-                                                    </h2>
-
-                                                    <p className="text-sm /75">
-                                                        Blue Meridian is an
-                                                        immense circular
-                                                        corridor spanning
-                                                        several kilometers in
-                                                        diameter, forming...
-                                                    </p>
-                                                </div>
-
-                                                <div className="text-sm [&_th]:font-normal [&_th]:text-right [&_th]:/65 flex gap-2">
-                                                    <table className="border-separate border-spacing-x-2">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>
-                                                                    DETECTED:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    TRANSMISSION:
-                                                                </th>
-
-                                                                <td>
-                                                                    c_EdC85jKq4
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th>
-                                                                    DURATION:
-                                                                </th>
-
-                                                                <td>
-                                                                    04-01-2026
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <div className="border-2 border-[#cbcbcb]">
-                                                        <QRCodeComponent
-                                                            value={
-                                                                "https://www.youtube.com/watch?v=c_EdC85jKq4"
-                                                            }
-                                                            size={64}
-                                                            bgColor="#cbcbcb"
-                                                            fgColor="#FFFFFF00"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div> */}
-                            <div className="flex flex-col justify-between items-center h-full">
-                                <div className="rotate-90 w-10 m-0 p-0">
+                            {/* VERTICAL BARCODE + OSF MICROGRAPHIC */}
+                            <div className="flex flex-col justify-between items-start h-full overflow-hidden">
+                                <div className="rotate-90 w-5 m-0 p-0">
                                     <Barcode
                                         value="azure strip"
                                         background="#FFFFFF00"
@@ -533,16 +307,14 @@ function NewEntry() {
                                         displayValue="false"
                                         className="m-0 p-0"
                                         width="1"
-                                        height="25"
+                                        height="15"
                                     />
                                 </div>
-                                {/* <img src={osfLogo} className="h-6"></img> */}
-                                <div className="font-[PPFraktion] flex flex-col -space-y-3 [&_p]:rotate-90 -mb-1.5">
+                                <div className="font-[PPFraktion] flex flex-col -space-y-2 [&_p]:rotate-90 -mb-1 text-[10px] w-4">
                                     <p>O</p>
                                     <p>S</p>
                                     <p>F</p>
                                     <p>-</p>
-                                    {/* <p>/</p> */}
                                     <p>0</p>
                                     <p>9</p>
                                     <p>2</p>
@@ -550,7 +322,8 @@ function NewEntry() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2 justify-center grow items-center hidden">
+                        {/* TO BE REMOVED */}
+                        {/* <div className="flex flex-col gap-2 justify-center grow items-center hidden">
                             <div className="flex flex-col gap-5 justify-center items-center pb-5">
                                 <img src={osfGlassLogo} className="h-40"></img>
                                 <p className=" font-[Monocode]">
@@ -568,7 +341,6 @@ function NewEntry() {
                                     <span
                                         className="relative p-3 z-20  flex justify-start items-center gap-4 px-5"
                                         style={{
-                                            // boxShadow: `0 0 100px 10px ${averageThumbnailColors.mediumColor}50`,
                                             backgroundColor: `${averageThumbnailColors.mediumColor}10`,
                                         }}
                                     >
@@ -674,7 +446,7 @@ function NewEntry() {
                                     </span>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
