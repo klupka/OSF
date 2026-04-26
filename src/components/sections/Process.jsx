@@ -3,12 +3,14 @@ import OSFProcessImage1 from "../../assets/images/foley_recording/blue_plane_int
 import OSFProcessImage2 from "../../assets/images/foley_recording/abstract_cieling.jpg";
 import OSFProcessImage3 from "../../assets/images/foley_recording/concrete_wall_zoom_mic.jpg";
 import OSFProcessImage4 from "../../assets/images/OSF_14.jpg";
+import OSFHat from "../../assets/images/foley_recording/OSF_HAT.jpg";
 
 import "../embla.css";
 import EmblaCarousel from "../EmblaCarousel";
 const OPTIONS = {};
 const SLIDE_COUNT = 4;
 const SLIDES = [
+    OSFHat,
     OSFProcessImage1,
     OSFProcessImage2,
     OSFProcessImage3,
@@ -105,7 +107,7 @@ const Process = () => {
                 </div>
 
                 {/* images */}
-                <div className="w-2/3 h-175">
+                <div className="w-1/3 h-175">
                     <EmblaCarousel slides={SLIDES} options={OPTIONS} />
                 </div>
             </div>
